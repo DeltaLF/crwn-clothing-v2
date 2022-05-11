@@ -17,6 +17,7 @@ const defaultFormFields = {
 const SignUpForm = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
+  // const { setCurrentUser } = useContext(UserContext);
 
   const resetFormFields = () => {
     setFormFields(defaultFormFields);
@@ -34,6 +35,7 @@ const SignUpForm = () => {
         password
       );
       console.log("response from native provider", response);
+      //setCurrentUser(response.user);
       const userDocRef = await createUserDocumentFromAuth(response.user, {
         displayName,
       });
@@ -50,7 +52,6 @@ const SignUpForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
     setFormFields({ ...formFields, [name]: value });
   };
 
