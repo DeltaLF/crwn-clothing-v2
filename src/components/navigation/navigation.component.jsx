@@ -4,8 +4,14 @@ import { ReactComponent as Crownlogo } from "../../assets/crown.svg";
 import "./navigation.styles.scss";
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-cion.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+
+import { CartContext } from "../../contexts/cart.context";
 
 const Navigation = () => {
+  const { isCartOpen } = useContext(CartContext);
+
   const { currentUser } = useContext(UserContext);
   console.log("cccccccccurrentUser", currentUser);
   const signOutHandler = async () => {
@@ -33,7 +39,9 @@ const Navigation = () => {
               SIGN IN
             </Link>
           )}
+          <CartIcon className="nva-link" />
         </div>
+        {isCartOpen ? <CartDropdown /> : null}
       </div>
       <Outlet />
     </Fragment>
