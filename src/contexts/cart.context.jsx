@@ -30,7 +30,6 @@ const removeCartItem = (cartItems, cartItemToRemove) => {
 };
 
 const clearCartItem = (cartItems, cartItemToClear) => {
-  console.log("ccccccccccccccc", cartItems, cartItemToClear);
   return cartItems.filter((cartItems) => {
     return cartItems.id !== cartItemToClear.id;
   });
@@ -59,7 +58,6 @@ export const CartProvider = ({ children }) => {
     setCartItems(removeCartItem(cartItems, cartItemToRemove));
   };
   const clearItemFromCart = (cartItemToClear) => {
-    console.log("clearItemFromCarttttttt", cartItemToClear);
     setCartItems(clearCartItem(cartItems, cartItemToClear));
   };
 

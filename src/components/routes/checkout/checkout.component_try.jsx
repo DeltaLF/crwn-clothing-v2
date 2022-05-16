@@ -25,7 +25,6 @@ const Checkout = () => {
                 <button
                   style={{ fontSize: "2rem" }}
                   onClick={() => {
-                    console.log("minus");
                     changeItemQuantity("-", cartItem.id);
                   }}
                 >
@@ -43,7 +42,6 @@ const Checkout = () => {
                 <span>price:{cartItem.quantity * cartItem.price}$</span>
                 <button
                   onClick={() => {
-                    console.log("delete:::::::::", cartItem.id);
                     deleteItem(cartItem.id);
                   }}
                 >
