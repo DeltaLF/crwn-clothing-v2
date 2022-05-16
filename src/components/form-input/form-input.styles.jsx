@@ -37,7 +37,7 @@ export const FormInputLabel = styled.label`
   }};
 
   ${(props) => {
-    return props.isShrink ? { shrinkLabelStyles } : "";
+    return props.isShrink ? shrinkLabelStyles : "";
   }}
 `;
 
