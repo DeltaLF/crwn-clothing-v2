@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,mBAAmB,CAAA;EAChB,OAAO,EAAE,IAAI;EACb,qBAAqB,EAAE,cAAa;EACpC,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;CACf",
+    "sources": [
+        "shop.styles_deprecated.scss"
+    ],
+    "names": [],
+    "file": "shop.styles_deprecated.css"
+}
