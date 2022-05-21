@@ -1,20 +1,25 @@
 import { createSelector } from "reselect";
 
-const selectCategotryReducer = (state) => state.categories;
+import { CategoryMap,Category } from "./category.types";
+import { CategoriesState } from "./category.reducer";
+// fix any after refactor rootStore to typescript
+const selectCategotryReducer = (state:any):CategoriesState => state.categories;
 
 export const selectCategories = createSelector(
   [selectCategotryReducer],
   (categroiesSlice) => categroiesSlice.categories
 );
 
+
+
 export const selectCategoriesMap = createSelector(
   [selectCategories],
-  (categories) => {
+  (categories):CategoryMap => {
     return categories.reduce((acc, category) => {
       const { title, items } = category;
       acc[title.toLowerCase()] = items;
       return acc;
-    }, {});
+    }, {} as CategoryMap);
   }
 );
 
@@ -23,11 +28,3 @@ export const selectCategoriesIsLoading = createSelector(
   (categroiesSlice) => categroiesSlice.isLoading
 );
 
-// export const selectCategoryMap = (state) => {
-//   console.log("selector fired");
-//   return state.categories.categories.reduce((acc, category) => {
-//     const { title, items } = category;
-//     acc[title.toLowerCase()] = items;
-//     return acc;
-//   }, {});
-// };

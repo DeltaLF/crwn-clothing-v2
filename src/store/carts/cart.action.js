@@ -1,4 +1,4 @@
-import { createAction } from "../../utils/reducer/reducer.tuils";
+import { createAction } from "../../utils/reducer/reducer.utils";
 import { CART_ACTION_TYPES } from "./cart.type";
 
 export const setIsCartOpen = () => {
