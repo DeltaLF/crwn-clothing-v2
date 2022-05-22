@@ -93,7 +93,7 @@ export type UserData = {
 
 export const createUserDocumentFromAuth = async (
   userAuth:User,
-  additionalInformation :AdditionalInfromation
+  additionalInformation? :AdditionalInfromation
 ):Promise<void|QueryDocumentSnapshot<UserData>> => {
   if (!userAuth) return;
   const userDocRef = doc(db, "users", userAuth.uid); //db collection idetify
