@@ -1,8 +1,4 @@
 import { useState } from "react";
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from "../../utils/firebase/firebase.utils";
 
 import FormInput from "../form-input/form-input.component";
 // import "./sign-up-form.styles.scss";
@@ -34,15 +30,6 @@ const SignUpForm = () => {
       return;
     }
     try {
-      // const response = await createAuthUserWithEmailAndPassword(
-      //   email,
-      //   password
-      // );
-
-      //setCurrentUser(response.user);
-      // const userDocRef = await createUserDocumentFromAuth(response.user, {
-      //   displayName,
-      // });
       dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
