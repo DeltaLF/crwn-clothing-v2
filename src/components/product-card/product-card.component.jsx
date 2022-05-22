@@ -15,7 +15,8 @@ const ProductCard = ({ product }) => {
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();
-  const addItemToCarthander = () => {
+  const addItemToCarthandler = () => {
+    console.log("addItemToCartHandler");
     dispatch(addItemToCart(cartItems, product));
   };
 
@@ -28,7 +29,7 @@ const ProductCard = ({ product }) => {
       </Footer>
       <Button
         buttonType={BUTTON_TYPES_CLASSES.inverted}
-        onClick={addItemToCarthander}
+        onClick={addItemToCarthandler}
       >
         Add to card
       </Button>

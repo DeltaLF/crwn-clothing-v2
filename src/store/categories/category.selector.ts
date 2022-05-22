@@ -1,6 +1,6 @@
 import { createSelector } from "reselect";
 
-import { CategoryMap,Category } from "./category.types";
+import { CategoryMap } from "./category.types";
 import { CategoriesState } from "./category.reducer";
 // fix any after refactor rootStore to typescript
 const selectCategotryReducer = (state:any):CategoriesState => state.categories;
