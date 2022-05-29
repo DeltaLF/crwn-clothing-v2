@@ -22,7 +22,14 @@ export const Group = styled.div`
     letter-spacing: 0.3em;
   }
 `;
-export const FormInputLabel = styled.label`
+
+type FormInputLabelProps = {
+  isShrink? :boolean
+}
+
+type propsImg = {imageUrl:string}
+
+export const FormInputLabel = styled.label<FormInputLabelProps>`
   color: ${subColor};
   font-size: 16px;
   font-weight: normal;
@@ -32,8 +39,8 @@ export const FormInputLabel = styled.label`
   top: 10px;
   transition: 300ms ease all;
 
-  background-image: ${(props) => {
-    return `url(${props.imageUrl})`;
+  background-image: ${(props:any) => {
+    return `url(${props && props.imageUrl})`;
   }};
 
   ${(props) => {

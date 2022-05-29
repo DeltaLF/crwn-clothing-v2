@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 
 import FormInput from "../form-input/form-input.component";
 import { SignContainer, ButtonsContainer } from "./sign-in-form.styles";
@@ -29,7 +29,7 @@ const SignInForm = () => {
     //const response = await signInWithgooglePopup();
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event:FormEvent) => {
     event.preventDefault();
 
     try {
@@ -37,8 +37,9 @@ const SignInForm = () => {
       dispatch(emailSignInStart(email, password));
       // setCurrentUser(response.user);
       resetFormFields();
-    } catch (error) {
-      switch (error.code) {
+    } catch (error:any) {
+
+      switch (error && error.code) {
         case "auth/user-not-found":
           alert("incorrect passwrod or email");
           break;
@@ -49,7 +50,7 @@ const SignInForm = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };

@@ -11,7 +11,16 @@ import { addItemToCart } from "../../store/carts/cart.action";
 import { useSelector } from "react-redux";
 import { selectCartItems } from "../../store/carts/cart.selector";
 
-const ProductCard = ({ product }) => {
+import { CategoryItem } from "../../store/categories/category.types";
+import { CartItem } from "../../store/carts/cart.type";
+import {FC} from "react"
+
+type productCardProps = {
+  key:string;
+  product: CartItem;
+}
+// product is CartItem
+const ProductCard:FC<productCardProps> = ({ product }) => {
   const { name, price, imageUrl } = product;
   const cartItems = useSelector(selectCartItems);
   const dispatch = useDispatch();

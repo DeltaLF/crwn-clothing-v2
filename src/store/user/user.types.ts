@@ -16,10 +16,4 @@ export enum USER_ACTION_TYPES {
   SIGN_FAILED = "user/SIGN_FAILED"
 };
 
-export type User ={
-  id:string,
-  createAt: Date,
-  email:string,
-  displayName:string
-}
 

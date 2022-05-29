@@ -2,6 +2,7 @@ import { AnyAction } from "redux";
 import { Category} from "./category.types";
 import { fetchCategoriesStart,fetchCategoriesSuccess,fetchCategoriesFailed } from "./category.action";
 
+
 export type CategoriesState = {
   readonly categories: Category[],
   readonly isLoading: boolean,

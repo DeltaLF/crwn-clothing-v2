@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { ChangeEvent, FormEvent, useState } from "react";
+import {AuthError, AuthErrorCodes} from 'firebase/auth'
 import FormInput from "../form-input/form-input.component";
 // import "./sign-up-form.styles.scss";
 import { SignContainer } from "../sign-in-form/sign-in-form.styles";
@@ -23,7 +23,7 @@ const SignUpForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event:FormEvent) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       alert("password is inconsistent with confirm password");
@@ -33,14 +33,14 @@ const SignUpForm = () => {
       dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
-      if (error.code === "auth/email-already-in-use") {
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
         alert("email already in use");
-      } else if (error.code === "auth/weak-password")
+      } else if ((error as AuthError).code === AuthErrorCodes.WEAK_PASSWORD)
         console.log("Password should be at least 6 characters");
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event:ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };

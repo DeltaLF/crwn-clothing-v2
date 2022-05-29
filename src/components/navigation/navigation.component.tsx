@@ -29,7 +29,6 @@ const Navigation = () => {
   };
 
   const currentUser = useSelector(selectCurrentUser);
-  console.log("navvvvvvvvvvvvvvvvv currentUser", currentUser);
 
   return (
     <Fragment>

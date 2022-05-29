@@ -9,10 +9,19 @@ import {
   selectCategoriesIsLoading,
 } from "../../../store/categories/category.selector";
 
+import {CartItem} from "./../../../store/carts/cart.type"
+
+type CategoryRoutePraams = {
+  category:string
+}
+
 const Category = () => {
-  const { category } = useParams();
+  const { category } = useParams<keyof CategoryRoutePraams>() as CategoryRoutePraams;
   const categoriesMap = useSelector(selectCategoriesMap);
   const [products, setProducts] = useState(categoriesMap[category]);
+  // bug 
+  // in Category products are CategoryItem (no needs to have quantity)
+  // but when the products are passed in Product
   const isLoading = useSelector(selectCategoriesIsLoading);
 
   useEffect(() => {
@@ -28,7 +37,7 @@ const Category = () => {
         <CategoryContainer>
           {products &&
             products.map((product) => {
-              return <ProductCard key={product.id} product={product} />;
+              return <ProductCard key={product.id.toString()} product={product as CartItem} />;
             })}
         </CategoryContainer>
       )}
