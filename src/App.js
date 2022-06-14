@@ -1,8 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-//import Navigation from "./components/navigation/navigation.component";
-//import Authentication from "./components/routes/authentication/authentication.component";
-//import Shop from "./components/routes/shop/shop.component";
-//import Checkout from "./components/routes/checkout/checkout.component";
 
 import { useEffect, lazy, Suspense } from "react";
 import { getCurrentUser } from "./utils/firebase/firebase.utils";
@@ -10,6 +6,8 @@ import { checkUserSession } from "./store/user/user.action";
 
 import Spinner from "./components/spinner/spinner.component";
 import { useDispatch } from "react-redux";
+
+import { GlobalStyle } from "./global.style";
 
 const Home = lazy(() => import("./components/routes/home/home.component"));
 const Authentication = lazy(() =>
@@ -39,6 +37,7 @@ const App = () => {
 
   return (
     <Suspense fallback={<Spinner />}>
+      <GlobalStyle />
       <div className="body">
         <Routes>
           <Route path="/" element={<Navigation />}>

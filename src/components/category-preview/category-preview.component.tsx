@@ -24,14 +24,12 @@ const CategoryPreview: FC<categoryPreviewProps> = ({ title, products }) => {
           <Title>{title.toUpperCase()}</Title>
         </Link>
       </h2>
-
       <Preview>
         {products
           .filter((_, idx) => idx < 4)
           .map((product) => {
-            if(typeof product.id !== 'string'){return}
-            return <ProductCard key={product.id} product={product} />;
-          })}e on type 'Intrinsi
+            return <ProductCard key={product.id.toString()} product={product} />;
+          })}
       </Preview>
     </CategoryPreviewStyles>
   );
